@@ -59,8 +59,8 @@ convert.addUnit = function addUnit(unit, factor) {
 
 let predefinedUnits = convert.units();
 convert.removeUnit = function removeUnit(unit) {
-    if (predefinedUnits.indexOf(unit) >= 0) {
-        throw new Error(`'${unit}' is predefined and cannot be removed`);
+    if (predefinedUnits.indexOf(unit) < 0) {
+        throw new Error(`'${unit}' is not predefined and cannot be removed`);
     }
     delete units[unit];
 };
